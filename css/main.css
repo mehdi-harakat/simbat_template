@@ -1,0 +1,534 @@
+/* start variables */
+:root {
+  /* --main-color: #2196f3;
+  --main-color-hover: #2b89d6;
+  --para-color: #777;
+  --section-background: #ececec; */
+
+  --main-color: #87e1c7;
+  --bg-color: #21605d;
+  --second-para-color: #eaebed;
+  --para-color: #339476;
+  --white-color: white;
+  --font-biggest: 70px;
+  --para-size-large:20px;
+  --para-size-medium:14px;
+  --para-size-small:12px;
+  --main-padding-top: 100px;
+  --main-padding-bottom: 100px;
+  --main-transition: 0.2s;
+  --second-transition: 0.5s;
+  --padding-top: 80px;
+  --padding-bottom: 80px;
+}
+/* end variables */
+
+/* ----------------------------------------------------------------------------- */
+
+/* start global rules */
+
+* {
+  font-family: 'Roboto', 'Open Sans', sans-serif;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+.container {
+  padding-left: 15px;
+  padding-right: 15px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* small screen */
+
+@media (min-width: 768px) {
+  .container {
+    width: 750px;
+  }
+}
+
+/* medium screen */
+@media (min-width: 992px) {
+  .container {
+    width: 970px;
+  }
+}
+
+/* larg screen */
+@media (min-width: 1200px) {
+  .container {
+    width: 1200px;
+  }
+}
+
+/* end global rules */
+
+/* -------------------------------------------------------------------------- */
+
+/* ----------------------------- START HEADER ------------------------------- */
+
+body{
+  position: relative;
+}
+
+header {
+  position: fixed;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 90%;
+  z-index: 10;
+}
+
+header .container .holder {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100px;
+}
+
+header .container .holder .logo .mainLogo{
+  width: 90px;
+}
+
+
+header .container .holder .main {
+  display: flex;
+  justify-content: space-between;
+  gap: 25px;
+}
+
+header .container .holder .main li {
+  padding: 6px 0;
+  border-radius: 2px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all var(--second-transition) ease-in-out;
+  position: relative;
+}
+
+header .container .holder .main li::before {
+  content: "";
+  width: 0%;
+  height: 1.5px;
+  background-color: var(--main-color);
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  transition: all var(--second-transition) ease-in-out;
+}
+
+header .container .holder .main li a {
+  color: var(--second-para-color);
+  text-transform: capitalize;
+  font-size: var(--para-size-medium);
+  transition: all var(--second-transition) ease-in-out;
+}
+
+header .container .holder .main > a {
+  display: none;
+}
+
+/* -------------------This Is Hover For Nav List---------------------------------- */
+header .container .holder .main li:hover a {
+  color: var(--main-color);
+}
+header .container .holder .main li:hover:before {
+  width: 100%;
+}
+/* ------------------------------------------------------------------------------- */
+
+header .container .holder .search {
+  width: 100px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+header .container .holder #searching {
+  display: none;
+}
+
+header .container .holder i {
+  color: var(--second-para-color);
+  transition: all var(--second-transition) ease-in-out;
+  font-size: 22px;
+}
+
+header .container .holder i:hover {
+  color: var(--bg-color);
+}
+
+header .container .holder .menu {
+  display: none;
+  font-size: 22px;
+  transition: all var(--second-transition) ease-in-out;
+  cursor: pointer;
+}
+
+header .container .holder .menu:hover {
+  color: var(--bg-color);
+}
+
+header .container .holder .contactUs .contact {
+  color: var(--second-para-color);
+  padding: 12px 15px;
+  background-color: var(--bg-color);
+  font-size: var(--para-size-medium);
+  font-weight: 400;
+  text-transform: capitalize;
+  border: 1.5px solid transparent;
+  transition: all var(--second-transition) ease-in-out;
+}
+
+header .container .holder .contactUs .contact:hover {
+  border: 1.5px solid var(--main-color);
+  color: var(--main-color);
+  font-weight: 400;
+  background-color: transparent;
+}
+
+
+
+
+
+/* -----------------------------------------larg screen */
+@media (max-width: 1200px) {
+
+}
+
+/* --------------------------------------medium screen */
+
+@media (max-width: 992px) {
+  header .container .holder .main li a {
+    font-size: 12px;
+  }
+
+  header .container .holder .search {
+    width: 90px;
+    justify-content: center;
+  }
+}
+
+
+/* --------------------------------------small screen */
+@media (max-width: 767px) {
+
+  header {
+    top: 0px;
+  }
+
+  header .container .holder {
+    height: 80px;
+  }
+
+  header .container .holder .logo .mainLogo{
+    width: 70px;
+  }
+
+  header .container .holder .main {
+    flex-direction: column;
+    gap: 0;
+    position: absolute;
+    top: 60px;
+    right: 0;
+    width: 100%;
+    background-color: var(--bg-color);
+    display: none;
+    transition:all var(--second-transition) ease-in-out ;
+    opacity: 0;
+  }
+
+  /* ------------------------------------- This Is For The Menu Click */
+  header .container .holder .done {
+    display: flex !important; 
+  }
+
+
+  header .container .holder .main li {
+    margin: 0;
+    padding: 0;
+  }
+  header .container .holder .main li a {
+    padding: 18px 120px 18px 30px;
+    width: 100%;
+  }
+  header .container .holder .main > a {
+    padding: 18px 120px 18px 30px;
+    font-weight: 700;
+    color: var(--second-para-color);
+    text-transform: capitalize;
+    font-size: var(--para-size-medium);
+    transition: all var(--second-transition) ease-in-out;
+  }
+
+  header .container .holder .main > a:hover {
+    color: var(--main-color);
+  }
+
+  header .container .holder .main li:hover a {
+    color: var(--main-color);
+    transform: translateX(10px);
+  }
+  header .container .holder .main li::before {
+    display: none;
+  }
+  
+  header .container .holder .main li:not(:last-child) {
+    border-bottom: 1px solid var(--main-color);
+  }
+
+  header .container .holder .search {
+    display: none;
+  }
+
+
+  header .container .holder .menu {
+    display: block;
+  }
+
+  header .container .holder .contactUs .contact {
+    display: none;
+  }
+
+}
+
+
+
+/* ----------------------------- END HEADER ------------------------------- */
+
+/* ------------------------------------------------------------------------ */
+
+/* ---------------------------- START LANDING ----------------------------- */
+
+.landing {
+  width: 100%;
+  height: 100vh;
+  position: relative;
+  z-index: 1;
+}
+
+.landing::after{
+  content: '';
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.523);
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 2;
+}
+
+.seeen {
+  background-size: cover;
+  animation: bgChanging 20s ease  infinite;
+}
+
+@keyframes bgChanging {
+  0%,
+  20%{
+    background-image: url(../Photos/landing_1.png);
+  }
+
+
+  25%,
+  45%{
+    background-image: url(../Photos/landing_2.png);
+  }
+
+  50%,
+  70%{
+    background-image: url(../Photos/landing_3.png);
+  }
+
+
+  75%,
+  95%{
+    background-image: url(../Photos/landing_4.png);
+  }
+
+
+  100%{
+    background-image: url(../Photos/landing_1.png);
+  }
+}
+
+.landing .container {
+  height: 100%;
+}
+
+.landing .container .text_land {
+  height: 100%;
+  width: 100%;
+  position: relative;
+  z-index: 3;
+}
+
+.landing .container .text_land h3 {
+  font-size: var(--font-biggest);
+  font-weight: 800;
+  color: var(--white-color);
+  text-transform: capitalize;
+  position: absolute;
+  top: 160px;
+  left: 50px;
+}
+
+.landing .container .text_land h3 span {
+  color: var(--para-color);
+}
+
+.landing .container .text_land p {
+  color: var(--white-color);
+  font-size: var(--para-size-small);
+  font-weight: 300;
+  letter-spacing: 0.4px;
+  line-height: 1.8;
+  width: 50%;
+  position: absolute;
+  top: 330px;
+  left: 50px;
+}
+
+.landing .container .text_land .socialIcons {
+  position: absolute;
+  top: 430px;
+  left: 54px;
+  display: flex;
+  gap: 13px;
+}
+
+.landing .container .text_land .socialIcons i {
+  font-size: 18px;
+  color: var(--white-color);
+  cursor: pointer;
+  transition: all var(--second-transition) ease-in-out;
+}
+
+.landing .container .text_land .socialIcons i:hover {
+  transform: scale(1.2);
+  color: var(--main-color);
+}
+
+
+.landing .container .text_land .arrowDown {
+  color: var(--white-color);
+  font-size: 26px;
+  position: absolute;
+  bottom: 50px;
+  left: 50%;
+  transform: translateX(-50%);
+  cursor: pointer;
+  animation: arrowMove 0.8s ease-in-out infinite alternate;
+  transition: all var(--second-transition) ease-in-out;
+}
+
+.landing .container .text_land  .arrowDown:hover {
+  animation-play-state: paused;
+  color: var(--main-color);
+}
+
+
+@keyframes arrowMove {
+  from{
+  bottom: 50px;
+  }
+  to{
+    bottom: 30px;
+  }
+}
+
+
+
+
+
+/* ----------------------------------larg screen */
+@media (max-width: 1200px) {
+
+}
+
+
+/* --------------------------------medium screen */
+@media (max-width: 992px) {
+
+}
+
+
+
+/* -------------------------------small screen */
+@media (max-width: 768px) {
+  .landing .container .text_land h3 {
+    font-size: 50px;
+    font-weight: 800;
+    top: 160px;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+  }
+  
+  .landing .container .text_land p {
+    color: var(--second-para-color);
+    font-size: var(--para-size-small);
+    top: 330px;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+  }
+
+  .landing .container .text_land .socialIcons {
+    top: 530px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  
+  .landing .container .text_land .socialIcons i {
+    font-size: var(--para-size-large);
+    color: var(--second-para-color);
+    cursor: pointer;
+    transition: all var(--second-transition) ease-in-out;
+  }
+
+  header .container .holder .main > a {
+    display: block;
+  }
+}
+
+
+/* ------------------------------------ the phone screen */
+@media (max-width: 660px) {
+  .landing .container .text_land h3 {
+    font-size: 45px;
+    width: 100%;
+    font-weight: 800;
+    top: 198px;
+  }
+  
+  .landing .container .text_land p {
+    width: 90%;
+    top: 330px;
+  }
+}
+
+
+/* ------------------------------------------galaxy fold screen */
+@media (max-width: 300px) {
+  .landing .container .text_land h3 {
+    font-size: 35px;
+    top: 190px;
+  }
+  
+  .landing .container .text_land p {
+    top: 310px;
+  }
+}
+
