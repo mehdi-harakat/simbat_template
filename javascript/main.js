@@ -7,8 +7,6 @@ window.addEventListener("scroll", () => {
 	} else {
 		upButton.style.cssText = "opacity: 0; pointer-events: none;";
 	}
-
-	console.log(scrollY)
 });
 
 upButton.onclick = onKeyUp;
@@ -60,6 +58,28 @@ li.forEach((elem) => {
 	});
 });
 
+// ------------------------------------------------------------------------------
+
+let pics = Array.from(document.querySelectorAll(".landing #pic-bg"));
+
+setInterval(() => {
+	pics.forEach((e) => {
+		
+		if (e.classList.contains("done-done")) {
+			if (e === pics[pics.length - 1]) {
+				setTimeout(() => {
+					e.classList.remove("done-done");
+					pics[0].classList.add("done-done");
+				}, 10);
+			} else {
+				setTimeout(() => {
+					e.classList.remove("done-done");
+					e.nextElementSibling.classList.add("done-done");
+				}, 10);
+			}
+		}
+	});
+}, 6000);
 // --------------------------------------------------------------------------
 
 let serCards = document.querySelectorAll(".boxes .cards");
@@ -67,14 +87,12 @@ let serCards = document.querySelectorAll(".boxes .cards");
 window.addEventListener("scroll", () => {
 	if (scrollY > 500) {
 		serCards.forEach((e, index) => {
-      setTimeout(() => {
-        e.style.opacity = '1';
-        e.style.transform = "translate(0px, 0)";
-			}, 200 * (index + 1));
+			setTimeout(() => {
+				e.style.opacity = "1";
+				e.style.transform = "translate(0px, 0)";
+			}, 150 * (index + 1));
 		});
 	}
 });
-
-
 
 //  ------------- BY EL MEHDI EL HARAKAT <3 <3 --------------------
