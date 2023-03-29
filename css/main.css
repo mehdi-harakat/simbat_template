@@ -1,9 +1,9 @@
 /* start variables */
 :root {
-	--main-color: #87e1c7;
-	--bg-color: #21605d;
-	--second-para-color: #eaebed;
-	--para-color: #339476;
+	--main-color: #3fd0c9;
+	--bg-color: #02353c;
+	--second-para-color: #c1f6ed;
+	--para-color: #2eaf7d;
 	--white-color: white;
 	--font-biggest: 70px;
 	--para-size-large: 20px;
@@ -112,23 +112,62 @@ html {
 
 /* ---------------------------- end component ----------------------------- */
 
-/* ----------------------------- START HEADER ------------------------------- */
-
 body {
 	position: relative;
 }
+/* ----------------------------- START HEADER ------------------------------- */
 
+body .up-button {
+	position: fixed;
+	bottom: 20px;
+	right: 20px;
+	z-index: 10;
+	color: var(--white-color);
+	background-color: var(--main-color);
+	font-size: 22px;
+	width: 40px;
+	height: 40px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	transition: var(--main-transition);
+	border-radius: 4px;
+	cursor: pointer;
+	/* ------- this for hide it from page and show it when the scroll in 550 */
+	opacity: 0;
+	pointer-events: none;
+}
+
+body .up-button:hover {
+	background-color: #35b1ab;
+}
+
+@media (max-width: 768px) {
+	body .up-button {
+		background-color: #3394758c;
+		bottom: 5px;
+		right: 5px;
+	}
+
+	body .up-button:hover {
+		background-color: #52bb9a87;
+	}
+}
+
+/* ----------------------------- START HEADER ------------------------------- */
+/* ----------------------------- START HEADER ------------------------------- */
 header {
 	position: fixed;
 	left: 50%;
-	transform: translateX(-50%);
+	transform: translateX(calc(-50% - 1px));
 	width: 100%;
 	z-index: 10;
 	transition: all 0.3s ease-in-out;
 }
 
 .bgNav {
-	background-color: #21605d;
+	background-color: var(--bg-color);
+	width: 100%;
 }
 
 header .container .holder {
@@ -225,7 +264,7 @@ header .container .holder .menu:hover {
 header .container .holder .contactUs .contact {
 	color: var(--second-para-color);
 	padding: 10px 12px;
-	background-color: #339476;
+	background-color: var(--main-color);
 	font-size: var(--para-size-medium);
 	font-weight: 500;
 	text-transform: capitalize;
@@ -360,7 +399,7 @@ header .container .holder .contactUs .contact:hover {
 	content: "";
 	width: 100%;
 	height: 100%;
-	background-color: rgba(0, 0, 0, 0.523);
+	background-color: #00000072;
 	position: absolute;
 	top: 0;
 	left: 0;
@@ -580,7 +619,10 @@ header .container .holder .contactUs .contact:hover {
 .services .container .boxes .cards {
 	border: 8px solid var(--para-color);
 	position: relative;
+	transform: translate(-200px, 0);
+	opacity: 0;
 	overflow: hidden;
+	transition: all 1s ease-in-out;
 }
 
 .services .container .boxes .cards span {
@@ -785,7 +827,7 @@ header .container .holder .contactUs .contact:hover {
 	text-align: center;
 	font-size: 45px;
 	font-weight: 800;
-	color: var(--bg-color);
+	color: var(--main-color);
 	text-transform: capitalize;
 }
 
@@ -793,8 +835,8 @@ header .container .holder .contactUs .contact:hover {
 	font-size: 32px;
 	font-weight: 800;
 	margin-top: -26px;
+	color: var(--bg-color);
 	display: block;
-	color: #333;
 }
 
 .skills .holder-skills .text-skills hr {
@@ -1030,7 +1072,7 @@ header .container .holder .contactUs .contact:hover {
 		margin-bottom: 15px;
 		text-align: center;
 		width: 100%;
-		}
+	}
 
 	.user-info .container .big-card .inp-text form {
 		justify-content: center;
@@ -1047,7 +1089,7 @@ header .container .holder .contactUs .contact:hover {
 		text-align: center;
 		border-radius: 10px;
 	}
-	
+
 	.user-info .container .big-card .inp-text form #sub {
 		border: none;
 		background: var(--bg-color);
@@ -1062,9 +1104,270 @@ header .container .holder .contactUs .contact:hover {
 	}
 }
 
-
 /* ----------------------------- END USER-INFO  ------------------------------- */
 
 /* ---------------------------------------------------------------------------- */
 
-/* ---------------------------- START ?????? ---------------------------------- */
+/* ---------------------------- START FOOTER ---------------------------------- */
+
+footer {
+	background-color: var(--bg-color);
+	color: var(--white-color);
+	padding-top: 40px;
+	padding-bottom: 40px;
+}
+
+footer .container .holder {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	padding-left: 40px;
+	padding-right: 40px;
+}
+
+footer .container .holder .other-footer {
+	width: 100%;
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+	gap: 40px;
+	margin-bottom: 60px;
+}
+footer .container .holder .other-footer .cards {
+	height: 150px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	padding: 20px 30px;
+	background-color: #00000069;
+	color: var(--main-color);
+	border-radius: 6px;
+	cursor: pointer;
+	transition: var(--second-transition);
+}
+
+footer .container .holder .other-footer .cards:hover {
+	color: var(--white-color);
+	background-color: var(--main-color);
+	transform: scale(1.1);
+}
+
+footer .container .holder .other-footer .cards i {
+	font-size: 30px;
+	margin-bottom: 30px;
+}
+footer .container .holder .other-footer .cards h5 {
+	margin-bottom: 5px;
+	font-size: var(--para-size-medium);
+}
+footer .container .holder .other-footer .cards P {
+	font-size: var(--para-size-small);
+}
+
+footer .container .holder .logo-social,
+footer .container .holder .main-footer,
+footer .container .holder .informations-foote {
+	width: 25%;
+}
+
+footer .container .holder .logo-social {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+footer .container .holder .logo-social img {
+	width: 180px;
+}
+
+footer .container .holder .logo-social .icons {
+	display: flex;
+	justify-content: center;
+	gap: 10px;
+}
+footer .container .holder .logo-social .icons a {
+	color: var(--white-color);
+}
+footer .container .holder .logo-social .icons a i {
+	width: 40px;
+	height: 40px;
+	background-color: #00000069;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-size: var(--para-size-large);
+	border-radius: 4px;
+	color: var(--white-color);
+	transition: var(--second-transition);
+}
+footer .container .holder .logo-social .icons a i:hover {
+	transform: scale(1.1);
+}
+
+footer .container .holder .logo-social .icons a i.face:hover {
+	background-color: #3b5998;
+}
+footer .container .holder .logo-social .icons a i.insta:hover {
+	background-color: #d62976;
+}
+footer .container .holder .logo-social .icons a i.twit:hover {
+	background-color: #00acee;
+}
+footer .container .holder .logo-social .icons a i.linked:hover {
+	background-color: #0072b1;
+}
+
+footer .container .holder .main-footer {
+	display: flex;
+	flex-direction: column;
+}
+
+footer .container .holder .main-footer a {
+	color: var(--white-color);
+	display: flex;
+	gap: 15px;
+	padding-top: 14px;
+	margin-left: 30px;
+}
+
+footer .container .holder .main-footer a:hover > i {
+	transform: translateX(20px);
+}
+
+footer .container .holder .main-footer a:not(:last-child) {
+	padding-bottom: 14px;
+	border-bottom: 1px solid #d7d6d6;
+	width: 75%;
+}
+
+footer .container .holder .main-footer a i {
+	font-size: var(--para-size-small);
+	color: var(--main-color);
+	transition: var(--second-transition);
+}
+footer .container .holder .main-footer a li {
+	text-transform: capitalize;
+	font-size: var(--para-size-medium);
+	font-weight: 400;
+	letter-spacing: 1px;
+	transition: var(--second-transition);
+}
+
+footer .container .holder .main-footer a:hover > i,
+footer .container .holder .main-footer a:hover > li {
+	transform: translateX(20px);
+}
+
+footer .container .holder .informations-footer {
+	padding-top: 10px;
+}
+
+footer .container .holder .informations-footer .adresse {
+	display: flex;
+	align-items: center;
+	gap: 15px;
+	margin-bottom: 15px;
+	font-size: var(--para-size-medium);
+	font-weight: 500;
+	letter-spacing: 0.5px;
+	line-height: 1.4;
+}
+
+footer .container .holder .informations-footer .adresse i {
+	font-size: var(--para-size-large);
+	color: var(--main-color);
+}
+
+.footer .up-button-two {
+	position: absolute;
+	bottom: 55px;
+	right: 20px;
+	color: var(--white-color);
+	background-color: var(--main-color);
+	font-size: 22px;
+	width: 40px;
+	height: 40px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border-radius: 4px;
+	cursor: pointer;
+}
+
+.footer .up-button-two:hover {
+	background-color: #35b1ab;
+}
+
+
+@media (max-width: 768px) {
+	footer .container .holder {
+		flex-direction: column;
+		justify-content: center;
+	}
+
+	footer .container .holder .logo-social,
+	footer .container .holder .main-footer,
+	footer .container .holder .informations-foote {
+		width: 100%;
+		margin-bottom: 50px;
+	}
+
+	footer .container .holder .informations-footer .adresse {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		gap: 15px;
+		margin-bottom: 25px;
+		font-size: var(--para-size-medium);
+		font-weight: 500;
+		letter-spacing: 0.5px;
+		line-height: 1.4;
+	}
+
+	footer .container .holder .informations-footer .adresse p {
+		text-align: center;
+	}
+
+		.footer .up-button-two {
+		background-color: #3394758c;
+		bottom: 50px;
+		right: 10px;
+	}
+
+	.footer .up-button-two:hover {
+		background-color: #52bb9a87;
+	}
+}
+
+
+/* ------------------------------ THE FINISH ------------------------------------------------- */
+
+.finish {
+	background-color: #1c1c1c;
+}
+
+.finish p {
+	color: var(--white-color);
+	text-align: center;
+	padding-top: 15px;
+	padding-bottom: 15px;
+	font-size: var(--para-size-small);
+}
+
+.finish p span {
+	color: var(--main-color);
+	font-weight: 700;
+}
+
+@media (max-width: 768px) {
+	.finish p {
+		padding-top: 10px;
+		padding-bottom: 10px;
+		font-size: 10px;
+	}
+}
+
+
+
+
+/* ------------- BY EL MEHDI EL HARAKAT <3 <3 --------------------- */
